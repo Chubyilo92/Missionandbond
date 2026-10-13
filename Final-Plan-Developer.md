@@ -1,4 +1,4 @@
-# Final Plan: Developer Spec (Mission MVP)
+# Final Plan: Developer Spec Couplein
 
 Oct 10, 2026
 
