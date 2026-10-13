@@ -204,7 +204,7 @@ No skip. It runs from local state with no network dependency: both photos are al
 
 **Save sheet.** Tapping Save opens "Save your card" ("Ready for TikTok, Reels and Stories") with two previews side by side, "Watermark on" (CoupleIn · Day N) and "Off · Pro" ("N Days of Us"), and one switch: **CoupleIn watermark**, on by default, sub-line "Off: your card says 'N Days of Us'". The switch is **Pro**: Pro users can turn it off; free users see it on with a PRO tag, and tapping it or the "Off · Pro" preview opens the paywall. Button: "Save to Photos". The same sheet appears before sharing from Who did it better?. The app remembers each Pro user's last choice. Shown with the paywall in section 2.
 
-**Week 1 video.** Promised on the first reveal screen. Generated on the phone from the first 7 completed pairs (photos are local), about 10 to 15 seconds: each pair cut to a beat with its pose name and "Day N together", ending on a title card with the date range. Delivered when the 7th pair is revealed, with a push: "Your Week 1 video is ready." Free gets it with the watermark and sees "Remove the watermark" as an upgrade. If a couple is slow, send a partial video on day 10 using the pairs that exist.
+**Week 1 video.** Promised on the first reveal screen. Generated on the phone from the first 7 completed pairs (photos are local), about 10 to 15 seconds: each pair cut to a beat with its pose name and "Day N together", ending on a title card with the date range. Delivered when the 7th pair is revealed, with a push: "Your Week 1 video is ready." Free gets it with the CoupleIn watermark (the "CoupleIn · Day N" pill); Pro gets "N Days of Us". It is not part of the paywall offer for now. If a couple is slow, send a partial video on day 10 using the pairs that exist.
 
 
 ## 6. Storage, relay and privacy
@@ -390,7 +390,7 @@ The daily question can come from any category; "Ask another" serves from the cho
 
 **To confirm with the founder before building**
 
-1. Does the Mission (today's pose, camera, reveal) live in the Missions tab? Assumed yes.
+1. Decided: the centre Mission tab opens straight into the Mission camera (section 5).
 2. Is Pro per person or per couple? Recommended per couple.
 3. Does the hard gate (no other screen until you have sent) apply to every daily pose, or only the first selfie? Built as first selfie only.
 4. What do points buy, and is there a daily cap? Points are earned (25 a photo) but the spend is undefined.

@@ -1,25 +1,29 @@
 # Final Plan: Founder Plan (Mission)
 
-Oct 10, 2026
+Updated Oct 13, 2026
 
 ## 1. Decisions and what was cut
 
-Mission is the hero feature and the growth engine: one pose a day, both partners send, a 3-2-1 reveal, and a card worth sharing. The developer has a separate spec (Final Plan: Developer Spec). This page is yours: marketing, money, risks and what only you can decide.
+Mission is the hero feature and the growth engine: one pose a day, both partners send, they tap to reveal, a 3-2-1 countdown, and a card worth sharing. Bond (the daily question) is the second free feature. The developer has a separate spec (Final-Plan-Developer.md). This page is yours: marketing, money, risks and what only you can decide.
 
 **Locked**
 
 - One thing a day, every day. A new pose unlocks at 3AM once both have sent the current one.
 - Pricing: weekly £5.99, monthly £9.99, yearly £49.99.
-- Only Mission is free. Calendar, Brownies and Resolve are Pro, shown as locked placeholders with promise lines ("We are a priority.", "Speak their language!", "8 of 10 couples resolve in 5 minutes.").
+- Two free features: Mission and Bond. Calendar, Brownies and Resolve are Pro, shown as locked placeholders with promise lines ("We are a priority.", "Speak their language!", "8 of 10 couples resolve in 5 minutes.").
 - Photos stay on the phone. Free users can open the last 14 days. A short-lived relay delivers photos between phones and deletes them.
 - First selfie is a hard gate: nobody sees any other screen until it is sent.
 - Week 1 video after the 7th completed pair, promised on the first reveal.
-- "Who did it better?" is the post button. The countdown only says "Reveal" then 3-2-1.
+- "Who did it better?" is the post button. Each partner taps "Tap to reveal" themselves; the countdown only says "Reveal" then 3-2-1.
+- The mission shows only on the camera (Snapchat-style bar) and is never on the card. The watermark is the centre pill: "CoupleIn · Day N" for free, "N Days of Us" for Pro.
+- Optional mood emoji and caption on every photo.
+- Two Mission nudges a day (9 AM and 6 PM) until the user sends.
+- Pro paywall leads with "2 for the price of 1" (depends on Pro being per couple).
 
 **Cut from the MVP**
 
 - Saturday global challenge (too many bugs for a non-core feature). It returns as a social challenge only, see section 2.
-- History grid, streaks, mood emoji, mood-only posts, missed-day tiles.
+- Streaks, mood-only posts, missed-day tiles.
 - "Who did it better" voting and scoreboard. Good idea for later.
 - "Couple of the week" and any public in-app feed.
 
@@ -39,7 +43,7 @@ Two growth loops: your absurd videos bring in the first couples, then every shar
 4. **A landing page per shared card.** Anyone tapping a shared card lands on "Do this pose with someone" with a one-tap store link, not the generic home page.
 5. **Write each pose notification as a dare**, for example "Pose 4: kiss while pretending to be asleep."
 6. **Make the first 7 poses the funniest and most filmable.** They feed the Week 1 video and set the tone for the habit.
-7. **Put the paywall where people are attached:** the Week 1 video ("Remove the watermark"), plus the locked tabs and the day 10 to 13 photo-lock warning.
+7. **Put the paywall where people are attached:** the watermark switch on Save, the locked tabs, and the day 10 to 13 photo-lock warning. The Week 1 video is not part of the offer for now.
 8. **Invite as a curiosity gap.** The invite carries the blurred locked card and the compliment, and says they took a selfie just for the partner.
 
 **Later:** a real "Who did it better?" vote with a scoreboard, and a stake on it (the loser does the dishes).
@@ -61,12 +65,12 @@ Two growth loops: your absurd videos bring in the first couples, then every shar
 - Share of new users who send the first selfie (the hard gate).
 - Share of couples where both partners complete a day.
 - Couples reaching the Week 1 video (7th completed pair).
-- Paywall views at the Week 1 video, and conversion from there.
+- Paywall views from the Save sheet watermark switch and from locked old cards, and conversion from each.
 - Weekly vs monthly vs yearly split.
 
 ## 4. Risks
 
-- **Locked old photos:** doing the pose is unlimited and free, and only viewing photos older than 14 days is Pro. Some users may still feel punished when a loved photo locks. The Week 1 video is the soft paywall to test this.
+- **Locked old photos:** doing the pose is unlimited and free, and only viewing photos older than 14 days is Pro. Some users may still feel punished when a loved photo locks. Watch conversion from the locked cards in Our cards.
 - **Camera effort drop-off:** one pose a day only works if sending feels easy. Watch day 2 to day 7 retention.
 - **Privacy promise:** the relay means photos briefly leave the phone. The copy must say this honestly (encrypted, deleted after both download).
 - **Unverified claim:** "8 of 10 couples resolve in 5 minutes" is not backed by data yet. Verify before it goes live.
@@ -76,7 +80,6 @@ Two growth loops: your absurd videos bring in the first couples, then every shar
 
 **Open questions (decide with the developer):**
 
-- Tab bar is now Calendar (Pro), Bond (free), Mission (free, centre), Brownies (Pro), Resolve (Pro); Settings moves to a top-right gear. Two free features: Mission and Bond.
 - Is Pro per person or per couple?
 - Hard gate: first selfie only, or every day?
 - What do points buy, and is there a daily cap? (25 points per photo for now)
@@ -85,7 +88,6 @@ Two growth loops: your absurd videos bring in the first couples, then every shar
 **Your to-do list:**
 
 - Verify the 8 of 10 claim and the invented Resolve timings (1:30 / 1:00 / 1:00 / 1:30).
-- Rebuild the 365-pose sheet with no dates, Pose 1 = lie flat on back.
 - Approve the first 7 poses.
-- Still to design: countdown screen, invite fork, pricing page, Week 1 video promise and ready screens.
+- Still to design: invite fork, Week 1 video promise and ready screens, Bond reveal when the partner has not joined.
 - Hand the Developer Spec to your developer.
