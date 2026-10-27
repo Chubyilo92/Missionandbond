@@ -8,6 +8,7 @@ This repo is the only source of truth for CoupleIn's two free features, **Missio
 | `Final-Plan-Founder.md` | Founder plan: decisions, marketing, economics, risks, to-do. |
 | `Final-Plan-Pose-List.xlsx` | The 365 daily poses (the app loads this list). |
 | `images/` | Every image the developer spec uses, including `reveal-animation.gif`. |
+| `sign-in/` | Sign-in screen redesign: two layouts, Android (Google only) and iOS (Apple + Google) versions, with notes for the developer. |
 
 Live, editable version of the developer spec: https://claude.ai/code/artifact/2e1eed49-ba2a-4606-a0d1-512fa8863e0c
 
