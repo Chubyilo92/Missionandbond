@@ -29,7 +29,7 @@ Terms: **Relationship Day Count** is days since the start date entered by the fi
 
 Mission replaces Mood Sync as the centre of the app and is a free feature (with Bond, below), with no limit on daily use (the habit is the product). The only thing gated is viewing old photos: Free can open the last 14 days; anything older is Pro. The app opens on the camera, or on today's card if today's selfie is already sent.
 
-**Tab bar (left to right):** Calendar (Pro), Bond (free), Mission (free, centre, raised camera button), Brownies (Pro), Resolve (Pro). Settings moves out of the tab bar to a gear icon at the top right of every screen. Pro tabs keep the pink lock badge. The Mission (today's pose, camera, reveal) lives in the centre Mission button. **Bond** is a free page: a daily question, an "Ask another" tab with category chips (Fun, Go deeper, Would you rather, Our future, Memories), and a reveal where both partners' typed answers (200 characters) show together once both have answered. No chat, no history in v1. Full Bond spec and screens in section 8. Question bank spec: see the "CoupleIn Bond: Question Bank" doc.
+**Tab bar (left to right):** Calendar (Pro), Bond (free), Mission (free, centre, raised camera button), Brownies (Pro), Resolve (Pro). Settings moves out of the tab bar to a gear icon at the top right of every screen. Pro tabs keep the pink lock badge. The Mission (today's pose, camera, reveal) lives in the centre Mission button. **Bond** is a free page: a daily question, an "Ask another" tab with category chips (Fun, Go deeper, Would you rather, Our future, Memories, plus Spicy when turned on), and a reveal where both partners' typed answers (200 characters) show together once both have answered. No chat, no history in v1. Full Bond spec and screens in section 8. Question bank: see CoupleIn-Bond-Question-Bank-v4.docx.
 
 | Area | Free | Pro |
 | --- | --- | --- |
@@ -306,7 +306,9 @@ Both stop the moment the user sends. Never more than two Mission nudges a day pe
 
 Bond is the second free feature, next to Mission. Partners answer the same question in text and see each other's answers together once both have answered. There is no chat. The fun comes from good questions and quick reactions (Love, Same, Haha). The whole feature is one loop: ask, answer privately, reveal together, react.
 
-Cut from v1: chat, answer history, double-choice taps, answer matching, a Sunday game, a Spicy category.
+Cut from v1: chat, answer history, double-choice taps, answer matching, a Sunday game.
+
+**Spicy** is in v1 as an opt-in chip: off by default, switched on in Settings. Its prompts are suggestive, not explicit.
 
 **Where it lives.** Bond is the second tab (Calendar (Pro), **Bond**, Mission, Brownies (Pro), Resolve (Pro)). The page header reads "Bond" with the subtitle "Get to know [Partner], every day" and the Settings gear at the top right.
 
@@ -317,7 +319,7 @@ Cut from v1: chat, answer history, double-choice taps, answer matching, a Sunday
 | 1. Today | Segmented control ("Today's question" / "Ask another"). Pink-bordered card with a category chip, the question, and the partner's answer blurred and locked. Below it, an "[Partner] asked you" row for questions the partner sent. | "Answer to see [Partner]'s" |
 | 2. Answer sheet | Bottom sheet "Your answer" with the question, a text box (200 characters, live counter) and a note that the partner has answered. | "Send and see [Partner]'s" |
 | 3. Reveal | Partner's answer and yours, each with reaction chips Love, Same, Haha. A "Both answered" label. A "Want more tonight? Ask another" card at the bottom. | Tap a reaction |
-| 4. Ask another | Chips: Fun, Go deeper, Would you rather, Our future, Memories. A card with one question from the chosen chip and a refresh icon. Below it, "Sent to [Partner] today" with each question's state (Waiting, Both answered). | "Answer and ask [Partner]" |
+| 4. Ask another | Chips: Fun, Go deeper, Would you rather, Our future, Memories, and Spicy (only if turned on). A card with one question from the chosen chip and a refresh icon. Below it, "Sent to [Partner] today" with each question's state (Waiting, Both answered). | "Answer and ask [Partner]" |
 
 **Today.** One daily question, the same for both partners, day-agnostic. It changes at 3AM in the couple's shared timezone, the same reset as the Mission pose.
 
@@ -328,14 +330,16 @@ Cut from v1: chat, answer history, double-choice taps, answer matching, a Sunday
 **Rules**
 
 - **Reveal is mutual.** Neither partner sees the other's answer until they have sent their own.
-- **Answers.** Typed text only, 200 characters max, final once sent. Would-you-rather questions are worded so the answer is a typed sentence ("Would you rather we X or Y, and why?").
+- **Answers.** Typed text only, 200 characters max, final once sent. Would-you-rather prompts end "My pick, and why…" so the answer is a typed sentence.
 - **Reactions.** Love, Same, Haha. One per answer per person, changeable. The partner sees a badge ("[Partner] loved this").
 - **Starting.** Available once the user has sent their first Mission selfie and finished onboarding. The partner does not need to be linked yet.
 - **Partner not joined.** The user can answer; the reveal stays locked until the partner joins and answers.
 - **History.** None in v1. Once both have answered and reacted, the question leaves Today.
 - **Free.** Bond is free for everyone, with no limits.
 
-**Question bank.** Questions come from a large pre-written bank on the server (MongoDB). No AI calls at runtime, so it costs nothing to run. The bank is being written in daily batches of 100 (20 per category) in the doc "CoupleIn Bond: Question Bank".
+**Question bank.** Questions come from a large pre-written bank on the server (MongoDB). No AI calls at runtime, so it costs nothing to run. The bank is CoupleIn-Bond-Question-Bank-v4.docx in this folder: 1,003 prompts.
+
+**How prompts are written.** Each prompt is a sentence the user finishes, not a question ("My most irrational fear is…"). "I/me/my" always means the person typing; the other partner is always their first name, stored as the placeholder `{partner}`. Replace `{partner}` with the other person's first name (fall back to "my partner" if none is saved). Put the answer box straight after the "…". Each prompt has a tag: ME (about yourself), PARTNER (about the other person) or US (about the couple). Show it as a small label: "About you", "About [Partner]", "About you both".
 
 | Category / chip | Style |
 | --- | --- |
@@ -344,13 +348,14 @@ Cut from v1: chat, answer history, double-choice taps, answer matching, a Sunday
 | Would you rather | Phrased so the answer is typed, with a "why" |
 | Our future | Concrete shared scenes, not abstract goals |
 | Memories | Specific moments with the partner |
+| Spicy (opt-in) | Flirty and suggestive, never explicit |
 
 The daily question can come from any category; "Ask another" serves from the chosen chip.
 
 - **Never repeating.** Each couple stores only the IDs of questions they have seen (about 20 to 30 KB at 5,000 questions). Serving always picks the next unseen question.
 - **Size.** 5,000 questions is about 400 to 500 KB of text. The app fetches batches of about 20 per category and caches them, so new questions need no app update.
-- **Running out.** At about 3 questions a day, 3,000 questions last about 2.7 years. After that the oldest return as "Revisit: you answered this a year ago. Has your answer changed?".
-- **Question rules.** Typed answer, gender-neutral, any relationship stage and long-distance, no sexual content, under about 18 words, no generic questions.
+- **Running out.** At about 3 prompts a day, the current 1,003 last about 11 months; more can be added on the server at any time. After that the oldest return as "Revisit: you answered this a year ago. Has your answer changed?".
+- **Question rules.** Typed answer, gender-neutral, any relationship stage and long-distance, no sexual content outside the opt-in Spicy chip, under about 18 words, no generic questions.
 - **Later (not v1).** Couples write their own questions; AI-generated questions saved to the bank.
 
 **Notifications**
@@ -365,7 +370,7 @@ The daily question can come from any category; "Ask another" serves from the cho
 
 **Data (per couple)**
 
-- Question bank: id, text, category, active flag.
+- Question bank: id, text (with `{partner}` placeholder), category, tag (me / partner / us), active flag.
 - Seen IDs: list of question IDs already served to this couple.
 - Daily question: date, question id.
 - Answers: question id, user id, text (max 200), sent time.

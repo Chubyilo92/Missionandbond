@@ -7,6 +7,7 @@ This repo is the only source of truth for CoupleIn's two free features, **Missio
 | `Final-Plan-Developer.md` | The full developer spec, with every screen: navigation and Pro paywall, daily pose rules, onboarding, Mission camera (three states, Snapchat-style mission bar, Retake / Send, 5s timer, mood and caption), Tap to reveal and the animated 3-2-1 reveal, share card and Save sheet (CoupleIn watermark / "N Days of Us"), Our cards gallery, storage and relay, notifications (twice-daily Mission nudges), Bond (section 8), open items and build checklist. |
 | `Final-Plan-Founder.md` | Founder plan: decisions, marketing, economics, risks, to-do. |
 | `Final-Plan-Pose-List.xlsx` | The 365 daily poses (the app loads this list). |
+| `CoupleIn-Bond-Question-Bank-v4.docx` | The Bond prompt bank: 1,003 first-person prompts with a `{partner}` name placeholder and a ME / PARTNER / US tag, in six categories including the opt-in Spicy. |
 | `images/` | Every image the developer spec uses, including `reveal-animation.gif`. |
 | `sign-in/` | Sign-in screen redesign: two layouts, Android (Google only) and iOS (Apple + Google) versions, with notes for the developer. |
 
